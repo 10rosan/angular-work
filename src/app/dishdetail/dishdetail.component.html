@@ -33,56 +33,22 @@
 
   <div fxFlex="40">
     <div fxFlex *ngIf="dish">
-        <mat-card>
-            <mat-card-header>
-                <mat-card-title>
-                    <h3>Comments</h3>
-                </mat-card-title>
-                
-            </mat-card-header>
-            
-            <mat-card-content>
-                <mat-list >
-                    <mat-list-item *ngIf="dish">
-                        <h3 mat-line>{{dish.comments[0].comment}}</h3>
-                        <h3 mat-line>{{dish.comments[0].rating}} Star</h3>
-                        <h3 mat-line>--{{dish.comments[0].author}} {{dish.comments[0].date | date}}</h3>
-                       
-                    </mat-list-item>
-                    <mat-list-item *ngIf="dish">
-                        <h3 mat-line>{{dish.comments[1].comment}}</h3>
-                        <h3 mat-line>{{dish.comments[1].rating}} Star</h3>
-                        <h3 mat-line>--{{dish.comments[1].author}} {{dish.comments[1].date | date}}</h3>
-                       
-                    </mat-list-item>
-                    <mat-list-item *ngIf="dish">
-                        <h3 mat-line>{{dish.comments[2].comment}}</h3>
-                        <h3 mat-line>{{dish.comments[2].rating}} Star</h3>
-                        <h3 mat-line>--{{dish.comments[2].author}} {{dish.comments[2].date | date}}</h3>
-                       
-                    </mat-list-item>
-                    <mat-list-item *ngIf="dish">
-                        <h3 mat-line>{{dish.comments[3].comment}}</h3>
-                        <h3 mat-line>{{dish.comments[3].rating}} Star</h3>
-                        <h3 mat-line>--{{dish.comments[3].author}} {{dish.comments[3].date | date}}</h3>
-                       
-                    </mat-list-item>
-                    <mat-list-item *ngIf="dish">
-                        <h3 mat-line>{{dish.comments[4].comment}}</h3>
-                        <h3 mat-line>{{dish.comments[4].rating}} Star</h3>
-                        <h3 mat-line>--{{dish.comments[4].author}} {{dish.comments[4].date | date}}</h3>
-                       
-                    </mat-list-item>
+       
+        <mat-list *ngIf="dish" >
+            <h3>Comments</h3>
+            <mat-list-item *ngFor="let comment of dish.comments">
+                <h4 mat-line>{{comment.comment}}</h4>
+                <p mat-line>{{comment.rating}} Stars</p>
+                <p mat-line>
+                    <span>
+                        --{{comment.author}} {{comment.date | date}}
+                    </span>
                     
-
-            
-                </mat-list>
-
-            </mat-card-content>
-            
-            
-        </mat-card>
-
+                </p>
+                       
+            </mat-list-item>
+                    
+        </mat-list>
 
     </div>
   </div>
